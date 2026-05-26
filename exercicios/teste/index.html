@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Lívia ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .message-box h1 {
+            color: #ff3366;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .message-box p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .surprise-btn {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+            margin: 10px;
+        }
+
+        .surprise-btn:hover {
+            transform: scale(1.1);
+            background: #ff1a4f;
+            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.6);
+        }
+
+        .surprise-btn:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .heart-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            display: none;
+            text-align: center;
+            animation: heartAppear 1s ease-out;
+        }
+
+        .heart {
+            font-size: 150px;
+            color: #ff3366;
+            filter: drop-shadow(0 0 30px rgba(255, 51, 102, 0.8));
+            animation: heartbeat 1s infinite;
+        }
+
+        .message {
+            font-size: 2rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-top: -20px;
+            font-weight: bold;
+            background: rgba(255, 51, 102, 0.3);
+            padding: 15px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 2px solid white;
+        }
+
+        @keyframes heartAppear {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message-box">
+            <h1>💝 Para Lívia 💝</h1>
+            <p>Clique no botão para ver uma surpresa especial!</p>
+        </div>
+        <button class="surprise-btn" onclick="startFireworks()">Clique aqui! 🎆</button>
+        <button class="surprise-btn" onclick="startFireworks()">Ou aqui! 🎇</button>
+        <button class="surprise-btn" onclick="startFireworks()">Ou até aqui! ✨</button>
+    </div>
+
+    <canvas id="fireworksCanvas"></canvas>
+
+    <div class="heart-message" id="heartMessage">
+        <div class="heart">❤️</div>
+        <div class="message">Você é perfeita, Lívia;-;</div>
+    </div>
+
+    <script>
+        class Firework {
+            constructor(canvas, ctx) {
+                this.canvas = canvas;
+                this.ctx = ctx;
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height;
+                this.sx = (Math.random() - 0.5) * 2;
+                this.sy = Math.random() * -3 - 10;
+                this.size = Math.random() * 2 + 1;
+                this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                this.exploded = false;
+                this.particles = [];
+            }
+
+            update() {
+                if (!this.exploded) {
+                    this.x += this.sx;
+                    this.y += this.sy;
+                    this.sy += 0.1;
+
+                    if (this.y <= this.canvas.height * 0.3 || this.sy >= 0) {
+                        this.explode();
+                    }
+                } else {
+                    for (let i = this.particles.length - 1; i >= 0; i--) {
+                        this.particles[i].update();
+                        if (this.particles[i].alpha <= 0) {
+                            this.particles.splice(i, 1);
+                        }
+                    }
+                }
+            }
+
+            explode() {
+                this.exploded = true;
+                const particleCount = 100 + Math.floor(Math.random() * 100);
+                for (let i = 0; i < particleCount; i++) {
+                    this.particles.push(new Particle(this.x, this.y, this.color));
+                }
+            }
+
+            draw() {
+                if (!this.exploded) {
+                    this.ctx.beginPath();
+                    this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    this.ctx.fillStyle = this.color;
+                    this.ctx.fill();
+                } else {
+                    this.particles.forEach(particle => particle.draw(this.ctx));
+                }
+            }
+        }
+
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * 6;
+                this.vy = (Math.random() - 0.5) * 6;
+                this.size = Math.random() * 2 + 1;
+                this.color = color;
+                this.alpha = 1;
+                this.decay = Math.random() * 0.015 + 0.01;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vy += 0.05;
+                this.alpha -= this.decay;
+            }
+
+            draw(ctx) {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const canvas = document.getElementById('fireworksCanvas');
+        const ctx = canvas.getContext('2d');
+        const heartMessage = document.getElementById('heartMessage');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        let fireworks = [];
+        let isActive = false;
+        let timer;
+
+        function startFireworks() {
+            if (isActive) {
+                clearTimeout(timer);
+                fireworks = [];
+            }
+
+            isActive = true;
+            heartMessage.style.display = 'block';
+
+            // Gerar fogos por 5 segundos
+            const startTime = Date.now();
+            
+            function generateFireworks() {
+                if (Date.now() - startTime < 5000) {
+                    for (let i = 0; i < 3; i++) {
+                        fireworks.push(new Firework(canvas, ctx));
+                    }
+                    requestAnimationFrame(generateFireworks);
+                } else {
+                    // Parar após 5 segundos
+                    setTimeout(() => {
+                        isActive = false;
+                        heartMessage.style.display = 'none';
+                        fireworks = [];
+                    }, 2000);
+                }
+            }
+
+            generateFireworks();
+
+            // Timer para garantir que pare após 5 segundos
+            timer = setTimeout(() => {
+                isActive = false;
+            }, 5000);
+        }
+
+        function animate() {
+            if (isActive) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (let i = fireworks.length - 1; i >= 0; i--) {
+                    fireworks[i].update();
+                    fireworks[i].draw();
+
+                    if (fireworks[i].exploded && fireworks[i].particles.length === 0) {
+                        fireworks.splice(i, 1);
+                    }
+                }
+            } else {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Adicionar alguns fogos de artifício iniciais para demonstração
+        setTimeout(() => {
+            if (!isActive) {
+                for (let i = 0; i < 5; i++) {
+                    fireworks.push(new Firework(canvas, ctx));
+                }
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

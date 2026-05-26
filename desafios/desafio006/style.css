@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+abbr {
+    text-decoration: none;
+    border-bottom: 1px dashed #1c68be;
+    cursor: help;
+    color: #7c0d0d;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+ul li:hover abbr {
+    color: #092aaf;
+    border-bottom-color: #08090a;
+}
+
+ul li:hover {
+    background-color: #d3cece;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #c9b792;
+}
+p{
+    text-align: justify;
+}

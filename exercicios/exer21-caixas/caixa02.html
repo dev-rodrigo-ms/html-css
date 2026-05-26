@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gruping tags</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: dimgray;
+            margin: 0px;
+        }
+
+        header{
+            background-color: white;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+
+        }
+
+        nav{
+            background-color: rgb(156, 151, 151);
+            padding: 1px;
+            font-size: 18px;
+            box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.527);
+        }
+        nav > a{
+            text-decoration: none;
+            color: white;
+            padding: 3px;
+            font-weight: bold;
+            margin-right: 30px;
+        }
+
+        a:hover{
+            background-color: rgb(241, 35, 35);
+            color: white;
+            text-decoration: underline;
+
+
+        }
+
+        main{
+            background-color: white;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px 20px;
+            box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.527);
+        }
+
+        article{
+            background-color: lightgray;
+        }
+
+        aside{
+            background-color: rgb(172, 170, 170);
+            padding: 5px;
+            margin: 0px;
+        }
+
+        footer{
+            background-color: rgb(2, 2, 2);
+            color: white;
+            padding: 7px;
+            margin: 0px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        footer > p{
+            margin: 0px;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Meu site
+
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+            </nav>
+        </h1>
+    </header>
+    <main>
+        <section id="assuntos">
+            <p>Esportes Política Tecnologia</p>
+
+        </section>
+        <section>
+            <article>
+                <h2>Notícias sobre o Brasil</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore illum assumenda dolores dolor qui. Quos dignissimos, rem impedit at iure qui itaque voluptatum enim provident, corrupti laborum, quo nemo dolor!</p>
+                <aside>
+                    Artigo escrito por <strong>Rodrigo de Melo Silva</strong> em 25 de abriu de 2026.
+                </aside>
+            </article>
+        </section>
+            
+    </main>
+    <footer>
+        <p>Denvolvido pelo curso em video</p>
+    </footer>
+   
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontes externas</title>
+    <style>
+        /*
+        Para usar uma fonte personalizada, é necessário usar a regra @font-face, onde é possível definir o nome da fonte e o caminho do arquivo da fonte.
+
+        --------------------------------------------------------------------------
+        Todo @font-face deve conter as seguintes propriedades:
+        - font-family: define o nome da fonte, que será usado para referenciar a fonte no restante do código CSS.
+        - src: define o caminho do arquivo da fonte e o formato da fonte. O formato é importante para garantir que a fonte seja carregada corretamente em diferentes navegadores.
+        --------------------------------------------------------------------------
+
+        Todo @ sempre deve ser declarado no início do código CSS, antes de qualquer outra regra de estilo, para garantir que a fonte seja carregada corretamente antes de ser usada em outros elementos.
+
+        */
+        @font-face {
+            font-family: strang;
+            src: url('Stranger back in the Night.ttf') format('truetype');
+
+            @font-face {
+                font-family: blood;
+                src: url('bloodcrows.ttf') format('truetype'), url('bloodcrows.otf') format('opentype');
+            }
+
+            /*    
+            Tipos de formato de fontes:
+            - truetype: .ttf
+            - opentype: .otf
+            - woff: .woff
+            */
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1{
+            font-family: 'strang', Times, serif;
+            font-size: 5em;
+            font-weight: normal;
+            font-style: normal;
+        }
+        h2{
+            font-family: 'blood', Times, serif;
+            font-size: 3em;
+            
+            
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Titulo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit id esse similique consectetur quod quam est alias unde reprehenderit distinctio, quaerat architecto ipsa. Perspiciatis magni accusantium consequatur nostrum quaerat ad.</p>
+    <h2>Subtitulo</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque voluptates debitis magnam veritatis! Fugiat quae fugit voluptatibus quaerat, earum reiciendis repellat esse temporibus. Iure quibusdam ratione tempore error provident voluptatem!</p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/* 
+-Em HTML que é ID= em CSS é '#'
+-Em HTML que é CLASS= em CSS é ' . '
+-Não é possível usar um ID mais de uma vez, mas é possível usar uma CLASS mais de uma vez.
+-ex: <h1 id="principal">Título Principal</h1>
+     <h2 class="basico">Título Básico</h2>
+     <h2 class="intermediario">Título Intermediário</h2>
+     <h2 class="avancado">Título Avançado</h2>
+-O ID só pode ser usado para um elemento específico, enquanto a CLASS pode ser usada para vários elementos.
+-Em CSS, o ID tem mais prioridade do que a CLASS, ou seja, se um elemento tiver um ID e uma CLASS, as regras do ID serão aplicadas.
+
+*/
+
+body {
+    background-color: #bde9fda9;
+    font-family: Arial, sans-serif;
+    color: #000000;
+    margin: 20px;
+}
+
+h1 {
+    color: #378cbd;
+    
+}
+
+h1#principal {
+   
+    text-align: center;
+    background-color: rgb(179, 234, 241);
+    color: bb2727;
+}
+
+h2 {
+    color: #800c0c;
+    
+}
+
+h2.basico {
+    color: #4c93af;
+}
+
+h2.intermediario {
+    color: #ff9800;
+}
+
+h2.avancado {
+    color: #f44336;
+}

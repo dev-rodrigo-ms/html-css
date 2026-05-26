@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Caixa</title>
+    <style>
+        h1{
+            background-color: darkgray;
+            /*
+            - A borda é a linha que envolve o conteúdo e o preenchimento de um elemento. Ela pode ser personalizada com diferentes estilos, larguras e cores.
+            - O preenchimento é o espaço entre o conteúdo de um elemento e sua borda.
+            */
+            width: 300px;
+            height: 300px;
+            /*
+            - Shorthand: é uma forma de escrever as propriedades de borda, padding e margem em uma única linha, usando a seguinte ordem: top, right, bottom, left. Se um valor for omitido, ele será aplicado a todos os lados.
+            */
+            border: 10px solid darkcyan;
+
+            padding: 10px;
+
+            margin: 20px 20px 40px 20px;
+            /*
+            - O outline é uma linha que é desenhada ao redor de um elemento, fora de sua borda. Ele é usado para destacar um elemento, mas não afeta o layout da página, pois não ocupa espaço como a borda. O outline pode ser personalizado com diferentes estilos, larguras e cores.
+            */
+            outline-width: 5px;
+            outline-style: dashed;
+            outline-color: rgb(32, 77, 224);
+        }
+         
+        a{
+            border: 10px dashed rgb(136, 21, 21);
+            /*
+            -Se todos os valores de padding forem iguais, podemos usar a propriedade padding com um único valor para definir o preenchimento em todos os lados. Por exemplo, padding: 10px; aplicará um preenchimento de 10 pixels em todos os lados do elemento.
+            */ 
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+   <h1>Exemplo de Caixa</h1>
+      <p>Parágrafos também são exemplos de box-level, mas os <a href="#"> links são exneolos de caixas inline-level</a>. Vmaos ver como tudo isso funciona. </p>    
+   
+</body> 
+</html> 

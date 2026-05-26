@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Hover</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div{
+            color: blue;
+
+        }
+        /*
+        Explicação do código CSS:
+        - O seletor "div > p" seleciona o elemento <p> que é filho direto do elemento <div>.
+
+        -A propriedade 'display: none;' oculta o elemento <p> inicialmente, ou seja, ele não será exibido na página.
+
+        - O seletor "div:hover > p" seleciona o elemento <p> quando o mouse estiver sobre o elemento <div>.
+        - A propriedade "display: block;" torna o elemento <p> visível quando o mouse estiver sobre o <div>.
+        */
+        div > p{
+            display: none;
+        }
+        div:hover > p{
+            display: block;
+            background-color: red;
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+     <h1>Exemplo de Hover</h1> 
+        <p>Passe o mouse sobre o texto abaixo para ver o efeito de hover:</p>
+        <div>Texto com efeito de hover
+            <p>Texto escondido</p>
+        </div>   
+</body>
+</html>

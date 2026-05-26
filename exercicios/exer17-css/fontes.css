@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+
+    /*
+     Medidadas Absolutas: São aquelas que não se adaptam a tela, ou seja, tem um valor fixo. Exemplo: px, cm, mm, in, pt, pc.
+
+
+        Medidas Relativas: São aquelas que se adaptam a tela, ou seja, tem um valor relativo. Exemplo: %, em, rem, vw, vh.
+
+     */
+
+     font-size: 16px;
+     font-weight: lighter;  /* normal, bold, bolder, lighter */
+     /* font-weight: significa o peso da fonte */
+      
+     background-image: linear-gradient(to right, #B8E6B5, #A1E6B5);
+     *{
+      height: 100%;
+     }
+   
+}
+h1, h2{
+   color: brown;
+   text-align: center;
+   text-shadow: black 1px 1px 2px;
+}
+main{
+   background-color: #ffffff;
+   padding: 20px;
+   border-radius: 10px;
+   margin: 20px;
+   box-shadow: 0 0 10px rgba(5, 5, 5, 5.3);
+   
+}

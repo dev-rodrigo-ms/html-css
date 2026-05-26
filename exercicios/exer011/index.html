@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midias em HTML5</title>
+    <style>
+        img {
+            
+            height: auto;
+            border-top-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            border-top-right-radius: 100px;
+        }
+        h1#com-pseudo::first-letter {
+            text-align: center;
+            color: royalblue;
+            font-size: 50px;
+        }
+        p#letra-grande::first-letter {
+            color: royalblue;
+            font-size: 50px;
+        }
+        audio {
+            margin-top: 20px;
+            border-radius: 20px;
+        }
+        video {
+            margin-top: 20px;
+            border-radius: 20px;
+            width: 250px;
+            
+            
+           
+        }
+    </style>
+</head>
+<body>
+    <h1 id="com-pseudo">Imagens dinâmicas</h1>
+    <p id="letra-grande">Tente abrir esse site em varios dispositivos diferentes ou alterar o tamanho da janela do navegador.</p>
+
+    <picture>
+        <source media="(max-width: 750px)" srcset="imagens/foto-p.png" type="image/png">
+        <source media="(max-width: 1050px)" srcset="imagens/foto-m.png" type="image/png">
+        <img src="imagens/foto-g.png" alt="imagem flexivel">
+    </picture>
+
+    <h1>Introduzindo Mídias em HTML5</h1>
+    <p>O HTML5 introduziu novas tags para incorporar mídias, como áudio e vídeo, de forma mais fácil e sem a necessidade de plugins externos. As tags <code>&lt;audio&gt;</code> e <code>&lt;video&gt;</code> permitem que os desenvolvedores integrem conteúdo multimídia diretamente em suas páginas da web, proporcionando uma experiência mais rica e interativa para os usuários.</p>
+    <h1>Reproduzindo áudio</h1>
+    <p>Clique no botão abaixo para reproduzir um áudio:</p>
+    <audio src="midia-ft/alex-jhone.mp3" controls loop></audio>
+    <h1>Reproduzindo vídeo</h1>
+    <p>Clique no botão abaixo para reproduzir um vídeo:</p>
+    <video src="midia-video/Meu-Video-2.Mp4" controls loop></video>
+    <h1>Incorporando videos do YouTube</h1>
+    <p>Você também pode incorporar vídeos do YouTube usando a tag <code>&lt;iframe&gt;</code>. Aqui está um exemplo:</p>
+  <div style="padding:50% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/816402206?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:250px;%;height:100%;" title="Adventure Time Stop Motion animaction ☀️ (2022)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+ 
+
+    
+</body>
+</html>
